@@ -1,6 +1,6 @@
 # Data Structure Visualizer
 
-This project is a web application for visualizing various data structures in java. It allows users to switch between light and dark themes and provides a user-friendly interface for interacting with different data structures.
+This project is a web application for visualizing various data structures in Java. It allows users to switch between light and dark themes and provides a user-friendly interface for interacting with different data structures.
 
 ## Table of Contents
 
