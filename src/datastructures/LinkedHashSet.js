@@ -70,54 +70,65 @@ function LinkedHashSet() {
         variant="outlined"
         style={{ marginTop: -10 }}
       />
-      <Button
-        variant="contained"
-        color="success"
-        onClick={handleAdd}
-        style={{ marginLeft: 10 }}
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "nowrap",
+          overflowX: "auto",
+          mt: 2,
+          mb: 2,
+          gap: 1,
+        }}
       >
-        Add
-      </Button>
-      <Button
-        variant="contained"
-        color="error"
-        onClick={handleRemove}
-        style={{ marginLeft: 10 }}
-      >
-        Remove
-      </Button>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleContains}
-        style={{ marginLeft: 10 }}
-      >
-        Contains
-      </Button>
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={handleSize}
-        style={{ marginLeft: 10 }}
-      >
-        Size
-      </Button>
-      <Button
-        variant="contained"
-        color="warning"
-        onClick={handleIsEmpty}
-        style={{ marginLeft: 10 }}
-      >
-        Is Empty?
-      </Button>
-      <Button
-        variant="contained"
-        color="error"
-        onClick={handleClear}
-        style={{ marginLeft: 10 }}
-      >
-        Clear
-      </Button>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={handleAdd}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Add
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={handleRemove}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Remove
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleContains}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Contains
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={handleSize}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Size
+        </Button>
+        <Button
+          variant="contained"
+          color="warning"
+          onClick={handleIsEmpty}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Is Empty?
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={handleClear}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Clear
+        </Button>
+      </Box>
       <Box mt={3}>
         <Typography variant="h6">Linked Hash Set</Typography>
         <Box display="flex" flexWrap="wrap">

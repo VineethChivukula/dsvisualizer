@@ -64,54 +64,65 @@ function Stack() {
         variant="outlined"
         style={{ marginTop: -10 }}
       />
-      <Button
-        variant="contained"
-        color="success"
-        onClick={handlePush}
-        style={{ marginLeft: 10 }}
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "nowrap",
+          overflowX: "auto",
+          mt: 2,
+          mb: 2,
+          gap: 1,
+        }}
       >
-        Push
-      </Button>
-      <Button
-        variant="contained"
-        color="error"
-        onClick={handlePop}
-        style={{ marginLeft: 10 }}
-      >
-        Pop
-      </Button>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handlePeek}
-        style={{ marginLeft: 10 }}
-      >
-        Peek
-      </Button>
-      <Button
-        variant="contained"
-        color="warning"
-        onClick={handleIsEmpty}
-        style={{ marginLeft: 10 }}
-      >
-        Is Empty?
-      </Button>
-      <Button
-        variant="contained"
-        color="info"
-        onClick={handleSearch}
-        style={{ marginLeft: 10 }}
-      >
-        Search
-      </Button>
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={handleSize}
-        style={{ marginLeft: 10 }}
-      >
-        Size
-      </Button>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={handlePush}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Push
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={handlePop}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Pop
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handlePeek}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Peek
+        </Button>
+        <Button
+          variant="contained"
+          color="warning"
+          onClick={handleIsEmpty}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Is Empty?
+        </Button>
+        <Button
+          variant="contained"
+          color="info"
+          onClick={handleSearch}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Search
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={handleSize}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Size
+        </Button>
+      </Box>
       <Box mt={3}>
         <Typography variant="h6">Stack</Typography>
         <Box display="flex" flexDirection="column-reverse">

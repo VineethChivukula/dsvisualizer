@@ -94,86 +94,97 @@ function Deque() {
         variant="outlined"
         style={{ marginTop: -10 }}
       />
-      <Button
-        variant="contained"
-        color="success"
-        onClick={handleAddFront}
-        style={{ marginLeft: 10 }}
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "nowrap",
+          overflowX: "auto",
+          mt: 2,
+          mb: 2,
+          gap: 1,
+        }}
       >
-        Add Front
-      </Button>
-      <Button
-        variant="contained"
-        color="success"
-        onClick={handleAddBack}
-        style={{ marginLeft: 10 }}
-      >
-        Add Back
-      </Button>
-      <Button
-        variant="contained"
-        color="error"
-        onClick={handleRemoveFront}
-        style={{ marginLeft: 10 }}
-      >
-        Remove Front
-      </Button>
-      <Button
-        variant="contained"
-        color="error"
-        onClick={handleRemoveBack}
-        style={{ marginLeft: 10 }}
-      >
-        Remove Back
-      </Button>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleFront}
-        style={{ marginLeft: 10 }}
-      >
-        Front
-      </Button>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleBack}
-        style={{ marginLeft: 10 }}
-      >
-        Back
-      </Button>
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={handleSize}
-        style={{ marginLeft: 10 }}
-      >
-        Size
-      </Button>
-      <Button
-        variant="contained"
-        color="warning"
-        onClick={handleIsEmpty}
-        style={{ marginLeft: 10 }}
-      >
-        Is Empty?
-      </Button>
-      <Button
-        variant="contained"
-        color="error"
-        onClick={handleClear}
-        style={{ marginLeft: 10 }}
-      >
-        Clear
-      </Button>
-      <Button
-        variant="contained"
-        color="success"
-        onClick={handleContains}
-        style={{ marginLeft: 10 }}
-      >
-        Contains
-      </Button>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={handleAddFront}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Add Front
+        </Button>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={handleAddBack}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Add Back
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={handleRemoveFront}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Remove Front
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={handleRemoveBack}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Remove Back
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleFront}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Front
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleBack}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Back
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={handleSize}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Size
+        </Button>
+        <Button
+          variant="contained"
+          color="warning"
+          onClick={handleIsEmpty}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Is Empty?
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={handleClear}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Clear
+        </Button>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={handleContains}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Contains
+        </Button>
+      </Box>
       <Box mt={3}>
         <Typography variant="h6">Deque</Typography>
         <Box display="flex">

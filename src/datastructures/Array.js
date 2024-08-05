@@ -82,76 +82,87 @@ const ArrayComponent = () => {
         variant="outlined"
         style={{ marginTop: -10 }}
       />
-      <Button
-        variant="contained"
-        color="success"
-        onClick={add}
-        style={{ marginLeft: 10 }}
-      >
-        Initialize Array
-      </Button>
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={() => {
-          const index = parseInt(prompt("Enter the index"), 10);
-          if (!isNaN(index)) {
-            get(index);
-          } else {
-            alert("Invalid index");
-          }
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "nowrap",
+          overflowX: "auto",
+          mt: 2,
+          mb: 2,
+          gap: 1,
         }}
-        style={{ marginLeft: 10 }}
       >
-        Get at Index
-      </Button>
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={() => {
-          const index = parseInt(prompt("Enter the index"), 10);
-          const element = parseInt(prompt("Enter the element"), 10);
-          if (!isNaN(index) && !isNaN(element)) {
-            setItem(index, element);
-          } else {
-            alert("Invalid index or element");
-          }
-        }}
-        style={{ marginLeft: 10 }}
-      >
-        Set at Index
-      </Button>
-      <Button
-        variant="contained"
-        color="info"
-        onClick={length}
-        style={{ marginLeft: 10 }}
-      >
-        Length
-      </Button>
-      <Button
-        variant="contained"
-        color="info"
-        onClick={sort}
-        style={{ marginLeft: 10 }}
-      >
-        Sort
-      </Button>
-      <Button
-        variant="contained"
-        color="info"
-        onClick={() => {
-          const element = parseInt(prompt("Enter the element"), 10);
-          if (!isNaN(element)) {
-            binarySearch(element);
-          } else {
-            alert("Invalid element");
-          }
-        }}
-        style={{ marginLeft: 10 }}
-      >
-        Binary Search
-      </Button>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={add}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Initialize Array
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            const index = parseInt(prompt("Enter the index"), 10);
+            if (!isNaN(index)) {
+              get(index);
+            } else {
+              alert("Invalid index");
+            }
+          }}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Get at Index
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            const index = parseInt(prompt("Enter the index"), 10);
+            const element = parseInt(prompt("Enter the element"), 10);
+            if (!isNaN(index) && !isNaN(element)) {
+              setItem(index, element);
+            } else {
+              alert("Invalid index or element");
+            }
+          }}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Set at Index
+        </Button>
+        <Button
+          variant="contained"
+          color="info"
+          onClick={length}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Length
+        </Button>
+        <Button
+          variant="contained"
+          color="info"
+          onClick={sort}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Sort
+        </Button>
+        <Button
+          variant="contained"
+          color="info"
+          onClick={() => {
+            const element = parseInt(prompt("Enter the element"), 10);
+            if (!isNaN(element)) {
+              binarySearch(element);
+            } else {
+              alert("Invalid element");
+            }
+          }}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Binary Search
+        </Button>
+      </Box>
       <Box mt={3}>
         <Typography variant="h6">Array</Typography>
         <Box display="flex" alignItems="center">

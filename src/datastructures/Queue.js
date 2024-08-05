@@ -92,86 +92,97 @@ function Queue() {
         variant="outlined"
         style={{ marginTop: -10 }}
       />
-      <Button
-        variant="contained"
-        color="success"
-        onClick={handleAdd}
-        style={{ marginLeft: 10 }}
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "nowrap",
+          overflowX: "auto",
+          mt: 2,
+          mb: 2,
+          gap: 1,
+        }}
       >
-        Add
-      </Button>
-      <Button
-        variant="contained"
-        color="success"
-        onClick={handleOffer}
-        style={{ marginLeft: 10 }}
-      >
-        Offer
-      </Button>
-      <Button
-        variant="contained"
-        color="error"
-        onClick={handleRemove}
-        style={{ marginLeft: 10 }}
-      >
-        Remove
-      </Button>
-      <Button
-        variant="contained"
-        color="error"
-        onClick={handlePoll}
-        style={{ marginLeft: 10 }}
-      >
-        Poll
-      </Button>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleElement}
-        style={{ marginLeft: 10 }}
-      >
-        Element
-      </Button>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handlePeek}
-        style={{ marginLeft: 10 }}
-      >
-        Peek
-      </Button>
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={handleSize}
-        style={{ marginLeft: 10 }}
-      >
-        Size
-      </Button>
-      <Button
-        variant="contained"
-        color="warning"
-        onClick={handleIsEmpty}
-        style={{ marginLeft: 10 }}
-      >
-        Is Empty?
-      </Button>
-      <Button
-        variant="contained"
-        color="error"
-        onClick={handleClear}
-        style={{ marginLeft: 10 }}
-      >
-        Clear
-      </Button>
-      <Button
-        variant="contained"
-        color="success"
-        onClick={handleContains}
-        style={{ marginLeft: 10 }}
-      >
-        Contains
-      </Button>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={handleAdd}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Add
+        </Button>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={handleOffer}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Offer
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={handleRemove}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Remove
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={handlePoll}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Poll
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleElement}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Element
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handlePeek}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Peek
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={handleSize}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Size
+        </Button>
+        <Button
+          variant="contained"
+          color="warning"
+          onClick={handleIsEmpty}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Is Empty?
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={handleClear}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Clear
+        </Button>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={handleContains}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Contains
+        </Button>
+      </Box>
       <Box mt={3}>
         <Typography variant="h6">Queue</Typography>
         <Box display="flex">

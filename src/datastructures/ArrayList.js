@@ -96,106 +96,117 @@ function ArrayList() {
         variant="outlined"
         style={{ marginTop: -10 }}
       />
-      <Button
-        variant="contained"
-        color="success"
-        onClick={() => add(value)}
-        style={{ marginLeft: 10 }}
-      >
-        Add
-      </Button>
-      <Button
-        variant="contained"
-        color="success"
-        onClick={() => {
-          const index = parseInt(prompt("Enter the index"), 10);
-          if (!isNaN(index)) {
-            addAtIndex(index, value);
-          } else {
-            alert("Invalid index");
-          }
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "nowrap",
+          overflowX: "auto",
+          mt: 2,
+          mb: 2,
+          gap: 1,
         }}
-        style={{ marginLeft: 10 }}
       >
-        Add at Index
-      </Button>
-      <Button
-        variant="contained"
-        color="error"
-        onClick={() => {
-          const index = parseInt(prompt("Enter the index"), 10);
-          if (!isNaN(index)) {
-            removeAtIndex(index);
-          } else {
-            alert("Invalid index");
-          }
-        }}
-        style={{ marginLeft: 10 }}
-      >
-        Remove at Index
-      </Button>
-      <Button
-        variant="contained"
-        color="error"
-        onClick={() => removeObject(value)}
-        style={{ marginLeft: 10 }}
-      >
-        Remove Object
-      </Button>
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={() => {
-          const index = parseInt(prompt("Enter the index"), 10);
-          if (!isNaN(index)) {
-            get(index);
-          } else {
-            alert("Invalid index");
-          }
-        }}
-        style={{ marginLeft: 10 }}
-      >
-        Get at Index
-      </Button>
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={() => {
-          const index = parseInt(prompt("Enter the index"), 10);
-          if (!isNaN(index)) {
-            set(index, value);
-          } else {
-            alert("Invalid index");
-          }
-        }}
-        style={{ marginLeft: 10 }}
-      >
-        Set at Index
-      </Button>
-      <Button
-        variant="contained"
-        color="info"
-        onClick={size}
-        style={{ marginLeft: 10 }}
-      >
-        Size
-      </Button>
-      <Button
-        variant="contained"
-        color="warning"
-        onClick={isEmpty}
-        style={{ marginLeft: 10 }}
-      >
-        Is Empty?
-      </Button>
-      <Button
-        variant="contained"
-        color="error"
-        onClick={clear}
-        style={{ marginLeft: 10 }}
-      >
-        Clear
-      </Button>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={() => add(value)}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Add
+        </Button>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={() => {
+            const index = parseInt(prompt("Enter the index"), 10);
+            if (!isNaN(index)) {
+              addAtIndex(index, value);
+            } else {
+              alert("Invalid index");
+            }
+          }}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Add at Index
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={() => {
+            const index = parseInt(prompt("Enter the index"), 10);
+            if (!isNaN(index)) {
+              removeAtIndex(index);
+            } else {
+              alert("Invalid index");
+            }
+          }}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Remove at Index
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={() => removeObject(value)}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Remove Object
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            const index = parseInt(prompt("Enter the index"), 10);
+            if (!isNaN(index)) {
+              get(index);
+            } else {
+              alert("Invalid index");
+            }
+          }}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Get at Index
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            const index = parseInt(prompt("Enter the index"), 10);
+            if (!isNaN(index)) {
+              set(index, value);
+            } else {
+              alert("Invalid index");
+            }
+          }}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Set at Index
+        </Button>
+        <Button
+          variant="contained"
+          color="info"
+          onClick={size}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Size
+        </Button>
+        <Button
+          variant="contained"
+          color="warning"
+          onClick={isEmpty}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Is Empty?
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={clear}
+          sx={{ minWidth: "140px", whiteSpace: "nowrap" }}
+        >
+          Clear
+        </Button>
+      </Box>
       <Box mt={3}>
         <Typography variant="h6">Array List</Typography>
         <Box display="flex" alignItems="center">
