@@ -12,10 +12,10 @@ const lightTheme = createTheme({
     mode: "light",
     background: {
       default: "#f3f4f6",
-      paper: "#ffffff",
+      paper: "",
     },
     text: {
-      primary: "#1976d2",
+      primary: "#f3f4f6",
       secondary: "#4d4d4d",
     },
   },
@@ -26,7 +26,7 @@ const darkTheme = createTheme({
     mode: "dark",
     background: {
       default: "#23272f",
-      paper: "#333840",
+      paper: "",
     },
     text: {
       primary: "#61dafb",

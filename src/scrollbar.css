@@ -1,35 +1,25 @@
 /**
  * 
- * This CSS file contains styles for customizing scrollbars in both dark and light themes.
+ * This CSS file contains styles for customizing scrollbars in different themes.
  * 
- * - `.dark-theme-scrollbar` class is used to style scrollbars in the dark theme.
- * - `.light-theme-scrollbar` class is used to style scrollbars in the light theme.
+ * .light-theme-scrollbar - Represents the scrollbar styles for the light theme.
+ * .dark-theme-scrollbar - Represents the scrollbar styles for the dark theme.
  * 
- * The following pseudo-elements are targeted to style the scrollbars:
+ * .light-theme-scrollbar::-webkit-scrollbar - Represents the scrollbar styles for the light theme in WebKit browsers.
+ * .dark-theme-scrollbar::-webkit-scrollbar - Represents the scrollbar styles for the dark theme in WebKit browsers.
  * 
- * - `::-webkit-scrollbar` targets the main scrollbar element.
- * - `::-webkit-scrollbar-thumb` targets the thumb (the draggable part) of the scrollbar.
- * - `::-webkit-scrollbar-track` targets the track (the background) of the scrollbar.
+ * .light-theme-scrollbar::-webkit-scrollbar-thumb - Represents the thumb styles for the light theme scrollbar in WebKit browsers.
+ * .dark-theme-scrollbar::-webkit-scrollbar-thumb - Represents the thumb styles for the dark theme scrollbar in WebKit browsers.
  * 
- * In the dark theme:
- * - The width of the scrollbar is set to 8px.
- * - The background color of the thumb is #9f9f9f.
- * - The border radius of the thumb is set to 18px.
- * - On hover, the background color of the thumb changes to #636363.
- * 
- * In the light theme:
- * - The width of the scrollbar is set to 8px.
- * - The background color of the track is #fbfbfc.
- * - The background color of the thumb is #8b8b8b.
- * - The border radius of the thumb is set to 10px.
- * - On hover, the background color of the thumb changes to #6b6b6b.
+ * .light-theme-scrollbar::-webkit-scrollbar-track - Represents the track styles for the light theme scrollbar in WebKit browsers.
+ * .dark-theme-scrollbar::-webkit-scrollbar-track - Represents the track styles for the dark theme scrollbar in WebKit browsers.
  */
 .light-theme-scrollbar {
-  scrollbar-color: #1976d2 #f3f4f6;
+  scrollbar-color: #f3f4f6 #ffffff00;
 }
 
 .dark-theme-scrollbar {
-  scrollbar-color: #61dafb #23272f;
+  scrollbar-color: #58c4dc #23272f00;
 }
 
 .light-theme-scrollbar::-webkit-scrollbar {
