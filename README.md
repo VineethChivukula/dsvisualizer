@@ -73,7 +73,7 @@ const lightTheme = createTheme({
     mode: "light",
     background: {
       default: "#f3f4f6",
-      paper: "#ffffff",
+      paper: "",
     },
     text: {
       primary: "#1976d2",
@@ -91,7 +91,7 @@ const darkTheme = createTheme({
     mode: "dark",
     background: {
       default: "#23272f",
-      paper: "#333840",
+      paper: "",
     },
     text: {
       primary: "#61dafb",
