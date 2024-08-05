@@ -1,6 +1,6 @@
 /* Styles for the light theme scrollbar */
 .light-theme-scrollbar {
-  scrollbar-color: #f3f4f6 #ffffff00; /* Sets the color of the scrollbar thumb and track */
+  scrollbar-color: #f3f4f6 #262626; /* Sets the color of the scrollbar thumb and track */
 }
 
 /* Styles for the dark theme scrollbar */
