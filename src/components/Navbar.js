@@ -36,7 +36,7 @@ function Navbar({ toggleTheme }) {
         </IconButton>
         <IconButton
           color="inherit"
-          href="https://github.com/VineethChivukula"
+          href="https://github.com/VineethChivukula/dsvisualizer"
           target="_blank"
           rel="noopener noreferrer"
         >
