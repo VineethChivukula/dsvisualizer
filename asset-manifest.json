@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/dsvisualizer/static/css/main.edd995b3.css",
+    "main.js": "/dsvisualizer/static/js/main.8d9c8031.js",
+    "index.html": "/dsvisualizer/index.html",
+    "main.edd995b3.css.map": "/dsvisualizer/static/css/main.edd995b3.css.map",
+    "main.8d9c8031.js.map": "/dsvisualizer/static/js/main.8d9c8031.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.edd995b3.css",
+    "static/js/main.8d9c8031.js"
+  ]
+}
