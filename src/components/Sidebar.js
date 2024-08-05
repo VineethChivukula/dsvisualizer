@@ -34,6 +34,8 @@ const items = [
  * @returns {JSX.Element} The rendered sidebar component.
  */
 function Sidebar({ onSelect, theme, open, onClose }) {
+  const scrollbarColor = theme === "light" ? "#f3f4f6" : "#4d4d4d";
+
   return (
     <Drawer
       variant="temporary"
@@ -66,7 +68,7 @@ function Sidebar({ onSelect, theme, open, onClose }) {
               onClose();
             }}
           >
-            <ListItemText primary={text} />
+            <ListItemText primary={text} sx={{ color: scrollbarColor }} />
           </ListItemButton>
         ))}
       </List>
