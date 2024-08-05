@@ -11,20 +11,24 @@ import TextField from "@mui/material/TextField";
  * @returns {JSX.Element} The Deque component.
  */
 function Deque() {
-  const [deque, setDeque] = useState([]);
-  const [value, setValue] = useState("");
+  // State variables
+  const [deque, setDeque] = useState([]); // Deque array
+  const [value, setValue] = useState(""); // Input value
   const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
 
+  // Add element to the front of the deque
   const handleAddFront = () => {
     setDeque([value, ...deque]);
     setValue("");
   };
 
+  // Add element to the back of the deque
   const handleAddBack = () => {
     setDeque([...deque, value]);
     setValue("");
   };
 
+  // Remove element from the front of the deque
   const handleRemoveFront = () => {
     if (deque.length > 0) {
       setDeque(deque.slice(1));
@@ -33,6 +37,7 @@ function Deque() {
     }
   };
 
+  // Remove element from the back of the deque
   const handleRemoveBack = () => {
     if (deque.length > 0) {
       setDeque(deque.slice(0, -1));
@@ -41,6 +46,7 @@ function Deque() {
     }
   };
 
+  // Get the front element of the deque
   const handleFront = () => {
     if (deque.length > 0) {
       alert(`Front element: ${deque[0]}`);
@@ -49,6 +55,7 @@ function Deque() {
     }
   };
 
+  // Get the back element of the deque
   const handleBack = () => {
     if (deque.length > 0) {
       alert(`Back element: ${deque[deque.length - 1]}`);
@@ -57,10 +64,12 @@ function Deque() {
     }
   };
 
+  // Get the size of the deque
   const handleSize = () => {
     alert(`Deque size: ${deque.length}`);
   };
 
+  // Check if the deque is empty
   const handleIsEmpty = () => {
     if (deque.length === 0) {
       alert("Deque is empty");
@@ -69,10 +78,12 @@ function Deque() {
     }
   };
 
+  // Clear the deque
   const handleClear = () => {
     setDeque([]);
   };
 
+  // Check if a value exists in the deque
   const handleContains = () => {
     const searchValue = prompt(
       "Enter a value to check if it exists in the deque"
@@ -87,6 +98,7 @@ function Deque() {
 
   return (
     <Box p={3} flexGrow={1}>
+      {/* Input field for adding values */}
       <TextField
         label="Value"
         value={value}
@@ -94,6 +106,7 @@ function Deque() {
         variant="outlined"
         style={{ marginTop: -10 }}
       />
+      {/* Buttons for deque operations */}
       <Box
         sx={{
           display: "flex",
@@ -185,6 +198,7 @@ function Deque() {
           Contains
         </Button>
       </Box>
+      {/* Display the deque */}
       <Box mt={3}>
         <Typography variant="h6">Deque</Typography>
         <Box display="flex">

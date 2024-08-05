@@ -11,20 +11,24 @@ import TextField from "@mui/material/TextField";
  * @returns {JSX.Element} The rendered Queue component.
  */
 function Queue() {
-  const [queue, setQueue] = useState([]);
-  const [value, setValue] = useState("");
+  // State variables
+  const [queue, setQueue] = useState([]); // Queue array
+  const [value, setValue] = useState(""); // Input value
   const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
 
+  // Add an element to the queue
   const handleAdd = () => {
     setQueue([...queue, value]);
     setValue("");
   };
 
+  // Offer an element to the queue (same as handleAdd)
   const handleOffer = () => {
     setQueue([...queue, value]);
     setValue("");
   };
 
+  // Remove the front element from the queue
   const handleRemove = () => {
     if (queue.length > 0) {
       setQueue(queue.slice(1));
@@ -33,12 +37,14 @@ function Queue() {
     }
   };
 
+  // Poll the front element from the queue (same as handleRemove)
   const handlePoll = () => {
     if (queue.length > 0) {
       setQueue(queue.slice(1));
     }
   };
 
+  // Get the front element of the queue
   const handleElement = () => {
     if (queue.length > 0) {
       const frontElement = queue[0];
@@ -48,6 +54,7 @@ function Queue() {
     }
   };
 
+  // Peek the front element of the queue (same as handleElement)
   const handlePeek = () => {
     if (queue.length > 0) {
       const frontElement = queue[0];
@@ -55,10 +62,12 @@ function Queue() {
     }
   };
 
+  // Get the size of the queue
   const handleSize = () => {
     alert(`Queue size: ${queue.length}`);
   };
 
+  // Check if the queue is empty
   const handleIsEmpty = () => {
     if (queue.length === 0) {
       alert("Queue is empty");
@@ -67,10 +76,12 @@ function Queue() {
     }
   };
 
+  // Clear the queue
   const handleClear = () => {
     setQueue([]);
   };
 
+  // Check if a value exists in the queue
   const handleContains = () => {
     const searchValue = prompt(
       "Enter a value to check if it exists in the queue"
@@ -85,6 +96,7 @@ function Queue() {
 
   return (
     <Box p={3} flexGrow={1}>
+      {/* Input field for adding elements */}
       <TextField
         label="Value"
         value={value}
@@ -102,6 +114,7 @@ function Queue() {
           gap: 1,
         }}
       >
+        {/* Buttons for queue operations */}
         <Button
           variant="contained"
           color="success"
@@ -186,6 +199,7 @@ function Queue() {
       <Box mt={3}>
         <Typography variant="h6">Queue</Typography>
         <Box display="flex">
+          {/* Render the queue elements */}
           {queue.map((item, index) => (
             <animated.div key={index} style={props}>
               <Box

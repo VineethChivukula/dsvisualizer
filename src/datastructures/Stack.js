@@ -11,28 +11,35 @@ import TextField from "@mui/material/TextField";
  * @returns {JSX.Element} The Stack component.
  */
 function Stack() {
-  const [stack, setStack] = useState([]);
-  const [value, setValue] = useState("");
+  // State variables
+  const [stack, setStack] = useState([]); // Stack array
+  const [value, setValue] = useState(""); // Value input
+
+  // Animation props
   const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
 
+  // Push operation
   const handlePush = () => {
-    setStack([...stack, value]);
-    setValue("");
+    setStack([...stack, value]); // Add value to the stack
+    setValue(""); // Clear the value input
   };
 
+  // Pop operation
   const handlePop = () => {
-    setStack(stack.slice(0, -1));
+    setStack(stack.slice(0, -1)); // Remove the top element from the stack
   };
 
+  // Peek operation
   const handlePeek = () => {
     if (stack.length > 0) {
-      const topElement = stack[stack.length - 1];
+      const topElement = stack[stack.length - 1]; // Get the top element
       alert(`Top element: ${topElement}`);
     } else {
       alert("Stack is empty");
     }
   };
 
+  // Check if stack is empty
   const handleIsEmpty = () => {
     if (stack.length === 0) {
       alert("Stack is empty");
@@ -41,9 +48,10 @@ function Stack() {
     }
   };
 
+  // Search for a value in the stack
   const handleSearch = () => {
     const searchValue = prompt("Enter a value to search");
-    const index = stack.findIndex((item) => item === searchValue);
+    const index = stack.findIndex((item) => item === searchValue); // Find the index of the value
     if (index !== -1) {
       alert(`Value found at index ${index}`);
     } else {
@@ -51,12 +59,14 @@ function Stack() {
     }
   };
 
+  // Get the size of the stack
   const handleSize = () => {
     alert(`Stack size: ${stack.length}`);
   };
 
   return (
     <Box p={3} flexGrow={1}>
+      {/* Value input */}
       <TextField
         label="Value"
         value={value}
@@ -64,6 +74,8 @@ function Stack() {
         variant="outlined"
         style={{ marginTop: -10 }}
       />
+
+      {/* Stack operation buttons */}
       <Box
         sx={{
           display: "flex",
@@ -123,6 +135,8 @@ function Stack() {
           Size
         </Button>
       </Box>
+
+      {/* Stack visualization */}
       <Box mt={3}>
         <Typography variant="h6">Stack</Typography>
         <Box display="flex" flexDirection="column-reverse">

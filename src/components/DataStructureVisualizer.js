@@ -27,6 +27,7 @@ import HashTable from "../datastructures/HashTable";
 function DataStructureVisualizer({ selectedItem }) {
   return (
     <Box p={3} flexGrow={1}>
+      {/* Render the appropriate component based on the selected data structure */}
       {selectedItem === "Array" && <Array />}
       {selectedItem === "ArrayList" && <ArrayList />}
       {selectedItem === "SingleLinkedList" && <SingleLinkedList />}

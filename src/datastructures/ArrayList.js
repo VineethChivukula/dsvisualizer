@@ -13,15 +13,17 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
  * @returns {JSX.Element} The ArrayList component.
  */
 function ArrayList() {
-  const [list, setList] = useState([]);
-  const [value, setValue] = useState("");
+  const [list, setList] = useState([]); // State to store the list
+  const [value, setValue] = useState(""); // State to store the input value
   const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
 
+  // Function to add an element to the end of the list
   const add = (element) => {
     setList([...list, element]);
     setValue("");
   };
 
+  // Function to add an element at a specific index in the list
   const addAtIndex = (index, element) => {
     if (index >= 0 && index <= list.length) {
       const updatedList = [...list];
@@ -33,6 +35,7 @@ function ArrayList() {
     }
   };
 
+  // Function to remove an element at a specific index from the list
   const removeAtIndex = (index) => {
     if (index >= 0 && index < list.length) {
       const updatedList = [...list];
@@ -43,6 +46,7 @@ function ArrayList() {
     }
   };
 
+  // Function to remove a specific element from the list
   const removeObject = (element) => {
     const index = list.indexOf(element);
     if (index !== -1) {
@@ -52,6 +56,7 @@ function ArrayList() {
     }
   };
 
+  // Function to get the element at a specific index in the list
   const get = (index) => {
     if (index >= 0 && index < list.length) {
       alert(`Element at index ${index}: ${list[index]}`);
@@ -60,6 +65,7 @@ function ArrayList() {
     }
   };
 
+  // Function to set the element at a specific index in the list
   const set = (index, element) => {
     if (index >= 0 && index < list.length) {
       const updatedList = [...list];
@@ -71,10 +77,12 @@ function ArrayList() {
     }
   };
 
+  // Function to get the size of the list
   const size = () => {
     alert(`List size: ${list.length}`);
   };
 
+  // Function to check if the list is empty
   const isEmpty = () => {
     if (list.length === 0) {
       alert("List is empty");
@@ -83,6 +91,7 @@ function ArrayList() {
     }
   };
 
+  // Function to clear the list
   const clear = () => {
     setList([]);
   };
@@ -106,6 +115,7 @@ function ArrayList() {
           gap: 1,
         }}
       >
+        {/* Buttons for various operations */}
         <Button
           variant="contained"
           color="success"
@@ -210,6 +220,7 @@ function ArrayList() {
       <Box mt={3}>
         <Typography variant="h6">Array List</Typography>
         <Box display="flex" alignItems="center">
+          {/* Displaying the list elements */}
           {list.map((item, index) => (
             <React.Fragment key={index}>
               <animated.div style={props}>

@@ -11,12 +11,14 @@ import TextField from "@mui/material/TextField";
  * @returns {LinkedHashSet} The LinkedHashSet object.
  */
 function LinkedHashSet() {
+  // State variables to store the LinkedHashSet and the input value
   const [linkedHashSet, setLinkedHashSet] = useState({
     set: new Set(),
     list: [],
   });
   const [value, setValue] = useState("");
 
+  // Function to handle adding a value to the LinkedHashSet
   const handleAdd = () => {
     if (!linkedHashSet.set.has(value)) {
       const newSet = new Set(linkedHashSet.set).add(value);
@@ -26,6 +28,7 @@ function LinkedHashSet() {
     setValue("");
   };
 
+  // Function to handle removing a value from the LinkedHashSet
   const handleRemove = () => {
     if (linkedHashSet.set.has(value)) {
       const newSet = new Set(linkedHashSet.set);
@@ -36,6 +39,7 @@ function LinkedHashSet() {
     setValue("");
   };
 
+  // Function to check if a value exists in the LinkedHashSet
   const handleContains = () => {
     if (linkedHashSet.set.has(value)) {
       alert("Value exists in the LinkedHashSet");
@@ -45,10 +49,12 @@ function LinkedHashSet() {
     setValue("");
   };
 
+  // Function to get the size of the LinkedHashSet
   const handleSize = () => {
     alert(`LinkedHashSet size: ${linkedHashSet.set.size}`);
   };
 
+  // Function to check if the LinkedHashSet is empty
   const handleIsEmpty = () => {
     if (linkedHashSet.set.size === 0) {
       alert("LinkedHashSet is empty");
@@ -57,12 +63,14 @@ function LinkedHashSet() {
     }
   };
 
+  // Function to clear the LinkedHashSet
   const handleClear = () => {
     setLinkedHashSet({ set: new Set(), list: [] });
   };
 
   return (
     <Box p={3} flexGrow={1}>
+      {/* Input field for adding values */}
       <TextField
         label="Value"
         value={value}
@@ -80,6 +88,7 @@ function LinkedHashSet() {
           gap: 1,
         }}
       >
+        {/* Buttons for performing LinkedHashSet operations */}
         <Button
           variant="contained"
           color="success"
@@ -131,6 +140,7 @@ function LinkedHashSet() {
       </Box>
       <Box mt={3}>
         <Typography variant="h6">Linked Hash Set</Typography>
+        {/* Display the LinkedHashSet values */}
         <Box display="flex" flexWrap="wrap">
           {linkedHashSet.list.map((item, index) => (
             <Box

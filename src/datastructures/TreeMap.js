@@ -11,10 +11,12 @@ import TextField from "@mui/material/TextField";
  * @returns {JSX.Element} The rendered TreeMap component.
  */
 function TreeMap() {
+  // State variables
   const [treeMap, setTreeMap] = useState(new Map());
   const [key, setKey] = useState("");
   const [value, setValue] = useState("");
 
+  // Add key-value pair to the TreeMap
   const handleAdd = () => {
     const newMap = new Map(treeMap);
     newMap.set(key, value);
@@ -23,6 +25,7 @@ function TreeMap() {
     setValue("");
   };
 
+  // Remove key-value pair from the TreeMap
   const handleRemove = () => {
     const newMap = new Map(treeMap);
     newMap.delete(key);
@@ -30,6 +33,7 @@ function TreeMap() {
     setKey("");
   };
 
+  // Check if key exists in the TreeMap
   const handleContainsKey = () => {
     if (treeMap.has(key)) {
       alert("Key exists in the TreeMap");
@@ -39,6 +43,7 @@ function TreeMap() {
     setKey("");
   };
 
+  // Get the value for a given key in the TreeMap
   const handleGetValue = () => {
     if (treeMap.has(key)) {
       alert(`Value for key "${key}": ${treeMap.get(key)}`);
@@ -48,10 +53,12 @@ function TreeMap() {
     setKey("");
   };
 
+  // Get the size of the TreeMap
   const handleSize = () => {
     alert(`TreeMap size: ${treeMap.size}`);
   };
 
+  // Check if the TreeMap is empty
   const handleIsEmpty = () => {
     if (treeMap.size === 0) {
       alert("TreeMap is empty");
@@ -60,12 +67,14 @@ function TreeMap() {
     }
   };
 
+  // Clear the TreeMap
   const handleClear = () => {
     setTreeMap(new Map());
   };
 
   return (
     <Box p={3} flexGrow={1}>
+      {/* Input fields for key and value */}
       <TextField
         label="Key"
         value={key}
@@ -90,6 +99,7 @@ function TreeMap() {
           gap: 1,
         }}
       >
+        {/* Buttons for various TreeMap operations */}
         <Button
           variant="contained"
           color="success"
@@ -149,6 +159,7 @@ function TreeMap() {
       </Box>
       <Box mt={3}>
         <Typography variant="h6">Tree Map</Typography>
+        {/* Display the TreeMap */}
         <Box display="flex" flexWrap="wrap">
           {[...treeMap.entries()].map(([k, v], index) => (
             <Box

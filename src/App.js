@@ -7,6 +7,7 @@ import DataStructureVisualizer from "./components/DataStructureVisualizer";
 import Backdrop from "@mui/material/Backdrop";
 import "./scrollbar.css";
 
+// Create a light theme using MUI's createTheme function
 const lightTheme = createTheme({
   palette: {
     mode: "light",
@@ -15,12 +16,13 @@ const lightTheme = createTheme({
       paper: "",
     },
     text: {
-      // primary: "#f3f4f6",
+      primary: "#1976d2",
       secondary: "#4d4d4d",
     },
   },
 });
 
+// Create a dark theme using MUI's createTheme function
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
@@ -44,23 +46,28 @@ const darkTheme = createTheme({
  * @returns {JSX.Element} The rendered JSX element.
  */
 function App() {
+  // State variables for theme, selected item, and sidebar open/close
   const [theme, setTheme] = useState("light");
   const [selectedItem, setSelectedItem] = useState("Array");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  // Function to toggle between light and dark theme
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
   };
 
+  // Function to handle item selection in the sidebar
   const handleSelect = (item) => {
     setSelectedItem(item);
     setSidebarOpen(false);
   };
 
+  // Function to toggle the sidebar open/close
   const handleSidebarToggle = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
+  // Determine the current theme based on the selected theme
   const currentTheme = theme === "light" ? lightTheme : darkTheme;
 
   return (
@@ -72,7 +79,10 @@ function App() {
         }
         style={{ display: "flex", height: "100vh", flexDirection: "column" }}
       >
+        {/* Render the Navbar component */}
         <Navbar toggleTheme={toggleTheme} toggleSidebar={handleSidebarToggle} />
+
+        {/* Render the backdrop for the sidebar */}
         <Backdrop
           open={sidebarOpen}
           onClick={handleSidebarToggle}
@@ -81,12 +91,15 @@ function App() {
             backdropFilter: "blur(4px)",
           }}
         />
+
+        {/* Render the Sidebar component */}
         <Sidebar
           onSelect={handleSelect}
           theme={theme}
           open={sidebarOpen}
           onClose={handleSidebarToggle}
         />
+
         <div
           style={{
             display: "flex",
@@ -104,6 +117,7 @@ function App() {
               alignItems: "flex-start",
             }}
           >
+            {/* Render the DataStructureVisualizer component */}
             <DataStructureVisualizer selectedItem={selectedItem} />
           </div>
         </div>

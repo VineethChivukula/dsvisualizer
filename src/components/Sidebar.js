@@ -34,7 +34,7 @@ const items = [
  * @returns {JSX.Element} The rendered sidebar component.
  */
 function Sidebar({ onSelect, theme, open, onClose }) {
-  const scrollbarColor = theme === "light" ? "#f3f4f6" : "#4d4d4d";
+  const scrollbarColor = theme === "light" ? "#f3f4f6" : "#58c4dc";
 
   return (
     <Drawer

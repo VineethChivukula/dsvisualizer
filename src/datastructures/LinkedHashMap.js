@@ -11,6 +11,7 @@ import TextField from "@mui/material/TextField";
  * @returns {JSX.Element} The rendered LinkedHashMap component.
  */
 function LinkedHashMap() {
+  // State variables
   const [linkedHashMap, setLinkedHashMap] = useState({
     map: new Map(),
     keys: [],
@@ -18,6 +19,7 @@ function LinkedHashMap() {
   const [key, setKey] = useState("");
   const [value, setValue] = useState("");
 
+  // Add key-value pair to the LinkedHashMap
   const handleAdd = () => {
     if (!linkedHashMap.map.has(key)) {
       const newMap = new Map(linkedHashMap.map).set(key, value);
@@ -31,6 +33,7 @@ function LinkedHashMap() {
     setValue("");
   };
 
+  // Remove key-value pair from the LinkedHashMap
   const handleRemove = () => {
     if (linkedHashMap.map.has(key)) {
       const newMap = new Map(linkedHashMap.map);
@@ -41,6 +44,7 @@ function LinkedHashMap() {
     setKey("");
   };
 
+  // Check if the LinkedHashMap contains a specific key
   const handleContainsKey = () => {
     if (linkedHashMap.map.has(key)) {
       alert("Key exists in the LinkedHashMap");
@@ -50,6 +54,7 @@ function LinkedHashMap() {
     setKey("");
   };
 
+  // Get the value associated with a specific key in the LinkedHashMap
   const handleGetValue = () => {
     if (linkedHashMap.map.has(key)) {
       alert(`Value for key "${key}": ${linkedHashMap.map.get(key)}`);
@@ -59,10 +64,12 @@ function LinkedHashMap() {
     setKey("");
   };
 
+  // Get the size of the LinkedHashMap
   const handleSize = () => {
     alert(`LinkedHashMap size: ${linkedHashMap.map.size}`);
   };
 
+  // Check if the LinkedHashMap is empty
   const handleIsEmpty = () => {
     if (linkedHashMap.map.size === 0) {
       alert("LinkedHashMap is empty");
@@ -71,12 +78,14 @@ function LinkedHashMap() {
     }
   };
 
+  // Clear the LinkedHashMap
   const handleClear = () => {
     setLinkedHashMap({ map: new Map(), keys: [] });
   };
 
   return (
     <Box p={3} flexGrow={1}>
+      {/* Input fields for key and value */}
       <TextField
         label="Key"
         value={key}
@@ -91,6 +100,8 @@ function LinkedHashMap() {
         variant="outlined"
         style={{ marginTop: -10, marginLeft: 10 }}
       />
+
+      {/* Buttons for various operations */}
       <Box
         sx={{
           display: "flex",
@@ -158,6 +169,8 @@ function LinkedHashMap() {
           Clear
         </Button>
       </Box>
+
+      {/* Display the LinkedHashMap */}
       <Box mt={3}>
         <Typography variant="h6">Linked Hash Map</Typography>
         <Box display="flex" flexWrap="wrap">

@@ -13,20 +13,24 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
  * @returns {LinkedList} The LinkedList object.
  */
 function LinkedList() {
-  const [list, setList] = useState([]);
-  const [value, setValue] = useState("");
-  const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
+  // State variables
+  const [list, setList] = useState([]); // Stores the linked list elements
+  const [value, setValue] = useState(""); // Stores the value entered in the text field
+  const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } }); // Animation props
 
+  // Add element to the beginning of the linked list
   const addFirst = () => {
     setList([value, ...list]);
     setValue("");
   };
 
+  // Add element to the end of the linked list
   const addLast = () => {
     setList([...list, value]);
     setValue("");
   };
 
+  // Add element at a specific index in the linked list
   const add = (index, element) => {
     if (index >= 0 && index <= list.length) {
       const updatedList = [...list];
@@ -38,6 +42,7 @@ function LinkedList() {
     }
   };
 
+  // Remove the first element from the linked list
   const removeFirst = () => {
     if (list.length > 0) {
       setList(list.slice(1));
@@ -46,6 +51,7 @@ function LinkedList() {
     }
   };
 
+  // Remove the last element from the linked list
   const removeLast = () => {
     if (list.length > 0) {
       setList(list.slice(0, -1));
@@ -54,6 +60,7 @@ function LinkedList() {
     }
   };
 
+  // Remove element at a specific index from the linked list
   const remove = (index) => {
     if (index >= 0 && index < list.length) {
       const updatedList = [...list];
@@ -64,6 +71,7 @@ function LinkedList() {
     }
   };
 
+  // Get the first element from the linked list
   const getFirst = () => {
     if (list.length > 0) {
       alert(`First element: ${list[0]}`);
@@ -72,6 +80,7 @@ function LinkedList() {
     }
   };
 
+  // Get the last element from the linked list
   const getLast = () => {
     if (list.length > 0) {
       alert(`Last element: ${list[list.length - 1]}`);
@@ -80,6 +89,7 @@ function LinkedList() {
     }
   };
 
+  // Get element at a specific index from the linked list
   const get = (index) => {
     if (index >= 0 && index < list.length) {
       alert(`Element at index ${index}: ${list[index]}`);
@@ -88,10 +98,12 @@ function LinkedList() {
     }
   };
 
+  // Get the size of the linked list
   const size = () => {
     alert(`List size: ${list.length}`);
   };
 
+  // Check if the linked list is empty
   const isEmpty = () => {
     if (list.length === 0) {
       alert("List is empty");
@@ -100,12 +112,14 @@ function LinkedList() {
     }
   };
 
+  // Clear the linked list
   const clear = () => {
     setList([]);
   };
 
   return (
     <Box p={3} flexGrow={1}>
+      {/* Text field for entering values */}
       <TextField
         label="Value"
         value={value}
@@ -113,6 +127,8 @@ function LinkedList() {
         variant="outlined"
         style={{ marginTop: -10 }}
       />
+
+      {/* Buttons for performing linked list operations */}
       <Box
         sx={{
           display: "flex",
@@ -241,6 +257,8 @@ function LinkedList() {
           Clear
         </Button>
       </Box>
+
+      {/* Display the linked list */}
       <Box mt={3}>
         <Typography variant="h6">Single Linked List</Typography>
         <Box display="flex" alignItems="center">

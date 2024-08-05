@@ -14,10 +14,11 @@ import TextField from "@mui/material/TextField";
  * @returns {React.Component} The ArrayComponent React component.
  */
 const ArrayComponent = () => {
-  const [list, setList] = useState([]);
-  const [numElements, setNumElements] = useState("");
+  const [list, setList] = useState([]); // State variable to store the array
+  const [numElements, setNumElements] = useState(""); // State variable to store the number of elements
   const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
 
+  // Function to add elements to the array
   const add = () => {
     const num = parseInt(numElements, 10);
     if (num > 0) {
@@ -28,6 +29,7 @@ const ArrayComponent = () => {
     }
   };
 
+  // Function to get an element at a specific index
   const get = (index) => {
     if (index >= 0 && index < list.length) {
       alert(`Element at index ${index}: ${list[index]}`);
@@ -36,6 +38,7 @@ const ArrayComponent = () => {
     }
   };
 
+  // Function to set an element at a specific index
   const setItem = (index, element) => {
     if (index >= 0 && index < list.length) {
       const updatedList = [...list];
@@ -46,15 +49,18 @@ const ArrayComponent = () => {
     }
   };
 
+  // Function to get the length of the array
   const length = () => {
     alert(`Array length: ${list.length}`);
   };
 
+  // Function to sort the array
   const sort = () => {
     const sortedList = [...list].sort((a, b) => a - b);
     setList(sortedList);
   };
 
+  // Function to perform binary search on the array
   const binarySearch = (element) => {
     const sortedList = [...list].sort((a, b) => a - b);
     let left = 0;

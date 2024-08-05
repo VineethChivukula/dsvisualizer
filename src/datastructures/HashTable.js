@@ -11,10 +11,12 @@ import TextField from "@mui/material/TextField";
  * @returns {JSX.Element} The HashTable component.
  */
 function HashTable() {
-  const [hashtable, setHashTable] = useState({});
-  const [key, setKey] = useState("");
-  const [value, setValue] = useState("");
+  // State variables
+  const [hashtable, setHashTable] = useState({}); // Stores the hash table
+  const [key, setKey] = useState(""); // Stores the current key input
+  const [value, setValue] = useState(""); // Stores the current value input
 
+  // Add a key-value pair to the hash table
   const handleAdd = () => {
     if (key && value) {
       const newHashTable = { ...hashtable, [key]: value };
@@ -26,12 +28,14 @@ function HashTable() {
     }
   };
 
+  // Remove a key-value pair from the hash table
   const handleRemove = () => {
     const { [key]: _, ...newHashTable } = hashtable;
     setHashTable(newHashTable);
     setKey("");
   };
 
+  // Check if a key exists in the hash table
   const handleContainsKey = () => {
     if (key in hashtable) {
       alert("Key exists in the HashTable");
@@ -41,6 +45,7 @@ function HashTable() {
     setKey("");
   };
 
+  // Get the value associated with a key in the hash table
   const handleGetValue = () => {
     if (key in hashtable) {
       alert(`Value for key "${key}": ${hashtable[key]}`);
@@ -50,10 +55,12 @@ function HashTable() {
     setKey("");
   };
 
+  // Get the size of the hash table
   const handleSize = () => {
     alert(`HashTable size: ${Object.keys(hashtable).length}`);
   };
 
+  // Check if the hash table is empty
   const handleIsEmpty = () => {
     if (Object.keys(hashtable).length === 0) {
       alert("HashTable is empty");
@@ -62,12 +69,14 @@ function HashTable() {
     }
   };
 
+  // Clear the hash table
   const handleClear = () => {
     setHashTable({});
   };
 
   return (
     <Box p={3} flexGrow={1}>
+      {/* Key input */}
       <TextField
         label="Key"
         value={key}
@@ -75,6 +84,7 @@ function HashTable() {
         variant="outlined"
         style={{ marginTop: -10 }}
       />
+      {/* Value input */}
       <TextField
         label="Value"
         value={value}
@@ -82,6 +92,7 @@ function HashTable() {
         variant="outlined"
         style={{ marginTop: -10, marginLeft: 10 }}
       />
+      {/* Buttons for various operations */}
       <Box
         sx={{
           display: "flex",
@@ -149,6 +160,7 @@ function HashTable() {
           Clear
         </Button>
       </Box>
+      {/* Display the hash table */}
       <Box mt={3}>
         <Typography variant="h6">Hash Table</Typography>
         <Box display="flex" flexWrap="wrap">

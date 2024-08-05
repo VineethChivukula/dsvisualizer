@@ -14,20 +14,24 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
  * @returns {JSX.Element} The double linked list component.
  */
 function DoubleLinkedList() {
-  const [list, setList] = useState([]);
-  const [value, setValue] = useState("");
-  const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
+  // State variables
+  const [list, setList] = useState([]); // Stores the double linked list
+  const [value, setValue] = useState(""); // Stores the value entered in the text field
+  const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } }); // Animation props
 
+  // Add a new node at the beginning of the list
   const addFirst = () => {
     setList([{ value, prev: null, next: list[0] }, ...list]);
     setValue("");
   };
 
+  // Add a new node at the end of the list
   const addLast = () => {
     setList([...list, { value, prev: list[list.length - 1], next: null }]);
     setValue("");
   };
 
+  // Add a new node at a specific index in the list
   const add = (index, element) => {
     if (index >= 0 && index <= list.length) {
       const updatedList = [...list];
@@ -45,6 +49,7 @@ function DoubleLinkedList() {
     }
   };
 
+  // Remove the first node from the list
   const removeFirst = () => {
     if (list.length > 0) {
       const updatedList = list.slice(1);
@@ -55,6 +60,7 @@ function DoubleLinkedList() {
     }
   };
 
+  // Remove the last node from the list
   const removeLast = () => {
     if (list.length > 0) {
       const updatedList = list.slice(0, -1);
@@ -66,6 +72,7 @@ function DoubleLinkedList() {
     }
   };
 
+  // Remove a node at a specific index from the list
   const remove = (index) => {
     if (index >= 0 && index < list.length) {
       const updatedList = [...list];
@@ -80,6 +87,7 @@ function DoubleLinkedList() {
     }
   };
 
+  // Get the value of the first node in the list
   const getFirst = () => {
     if (list.length > 0) {
       alert(`First element: ${list[0].value}`);
@@ -88,6 +96,7 @@ function DoubleLinkedList() {
     }
   };
 
+  // Get the value of the last node in the list
   const getLast = () => {
     if (list.length > 0) {
       alert(`Last element: ${list[list.length - 1].value}`);
@@ -96,6 +105,7 @@ function DoubleLinkedList() {
     }
   };
 
+  // Get the value of a node at a specific index in the list
   const get = (index) => {
     if (index >= 0 && index < list.length) {
       alert(`Element at index ${index}: ${list[index].value}`);
@@ -104,10 +114,12 @@ function DoubleLinkedList() {
     }
   };
 
+  // Get the size of the list
   const size = () => {
     alert(`List size: ${list.length}`);
   };
 
+  // Check if the list is empty
   const isEmpty = () => {
     if (list.length === 0) {
       alert("List is empty");
@@ -116,12 +128,14 @@ function DoubleLinkedList() {
     }
   };
 
+  // Clear the list
   const clear = () => {
     setList([]);
   };
 
   return (
     <Box p={3} flexGrow={1}>
+      {/* Text field for entering a value */}
       <TextField
         label="Value"
         value={value}
@@ -139,6 +153,7 @@ function DoubleLinkedList() {
           gap: 1,
         }}
       >
+        {/* Buttons for performing list operations */}
         <Button
           variant="contained"
           color="success"
@@ -260,6 +275,7 @@ function DoubleLinkedList() {
       <Box mt={3}>
         <Typography variant="h6">Double Linked List</Typography>
         <Box display="flex" alignItems="center">
+          {/* Render the nodes of the list */}
           {list.map((item, index) => (
             <React.Fragment key={index}>
               {index > 0 && <ArrowBackIcon style={{ marginRight: 10 }} />}

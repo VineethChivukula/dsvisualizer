@@ -11,9 +11,11 @@ import TextField from "@mui/material/TextField";
  * @returns {TreeSet} The TreeSet object.
  */
 function TreeSet() {
+  // State variables to store the set and list
   const [treeSet, setTreeSet] = useState({ set: new Set(), list: [] });
   const [value, setValue] = useState("");
 
+  // Function to handle adding a value to the set and list
   const handleAdd = () => {
     if (!treeSet.set.has(value)) {
       const newSet = new Set(treeSet.set).add(value);
@@ -23,6 +25,7 @@ function TreeSet() {
     setValue("");
   };
 
+  // Function to handle removing a value from the set and list
   const handleRemove = () => {
     if (treeSet.set.has(value)) {
       const newSet = new Set(treeSet.set);
@@ -33,6 +36,7 @@ function TreeSet() {
     setValue("");
   };
 
+  // Function to check if a value exists in the set
   const handleContains = () => {
     if (treeSet.set.has(value)) {
       alert("Value exists in the TreeSet");
@@ -42,10 +46,12 @@ function TreeSet() {
     setValue("");
   };
 
+  // Function to display the size of the set
   const handleSize = () => {
     alert(`TreeSet size: ${treeSet.set.size}`);
   };
 
+  // Function to check if the set is empty
   const handleIsEmpty = () => {
     if (treeSet.set.size === 0) {
       alert("TreeSet is empty");
@@ -54,12 +60,14 @@ function TreeSet() {
     }
   };
 
+  // Function to clear the set and list
   const handleClear = () => {
     setTreeSet({ set: new Set(), list: [] });
   };
 
   return (
     <Box p={3} flexGrow={1}>
+      {/* Input field for entering a value */}
       <TextField
         label="Value"
         value={value}
@@ -77,6 +85,7 @@ function TreeSet() {
           gap: 1,
         }}
       >
+        {/* Buttons for performing set operations */}
         <Button
           variant="contained"
           color="success"
@@ -128,6 +137,7 @@ function TreeSet() {
       </Box>
       <Box mt={3}>
         <Typography variant="h6">Tree Set</Typography>
+        {/* Display the set values */}
         <Box display="flex" flexWrap="wrap">
           {treeSet.list.map((item, index) => (
             <Box

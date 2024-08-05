@@ -14,143 +14,158 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
  * @returns {JSX.Element} CircularLinkedList component
  */
 function CircularLinkedList() {
-  const [list, setList] = useState([]);
-  const [value, setValue] = useState("");
-  const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
+  // State variables
+  const [list, setList] = useState([]); // Stores the circular linked list
+  const [value, setValue] = useState(""); // Stores the value entered in the text field
+  const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } }); // Animation props
 
+  // Add element to the beginning of the list
   const addFirst = () => {
-    const newNode = { value, next: list[0] || null };
+    const newNode = { value, next: list[0] || null }; // Create a new node with the entered value
     if (list.length > 0) {
-      list[list.length - 1].next = newNode;
+      list[list.length - 1].next = newNode; // Update the next pointer of the last node
     }
-    setList([newNode, ...list]);
-    setValue("");
+    setList([newNode, ...list]); // Update the list with the new node at the beginning
+    setValue(""); // Clear the input field
   };
 
+  // Add element to the end of the list
   const addLast = () => {
-    const newNode = { value, next: list[0] || null };
+    const newNode = { value, next: list[0] || null }; // Create a new node with the entered value
     if (list.length > 0) {
-      list[list.length - 1].next = newNode;
+      list[list.length - 1].next = newNode; // Update the next pointer of the last node
     }
-    setList([...list, newNode]);
-    setValue("");
+    setList([...list, newNode]); // Update the list with the new node at the end
+    setValue(""); // Clear the input field
   };
 
+  // Add element at a specific index in the list
   const add = (index, element) => {
     if (index >= 0 && index <= list.length) {
-      const newNode = { value: element, next: null };
+      const newNode = { value: element, next: null }; // Create a new node with the entered value
       const updatedList = [...list];
       if (index === 0) {
-        newNode.next = list[0] || newNode;
+        newNode.next = list[0] || newNode; // Update the next pointer of the new node
         if (list.length > 0) {
-          list[list.length - 1].next = newNode;
+          list[list.length - 1].next = newNode; // Update the next pointer of the last node
         }
-        updatedList.unshift(newNode);
+        updatedList.unshift(newNode); // Add the new node at the beginning of the list
       } else {
-        newNode.next = updatedList[index];
-        updatedList[index - 1].next = newNode;
-        updatedList.splice(index, 0, newNode);
+        newNode.next = updatedList[index]; // Update the next pointer of the new node
+        updatedList[index - 1].next = newNode; // Update the next pointer of the previous node
+        updatedList.splice(index, 0, newNode); // Insert the new node at the specified index
       }
-      setList(updatedList);
-      setValue("");
+      setList(updatedList); // Update the list with the new node
+      setValue(""); // Clear the input field
     } else {
-      alert("Invalid index");
+      alert("Invalid index"); // Show an alert for invalid index
     }
   };
 
+  // Remove the first element from the list
   const removeFirst = () => {
     if (list.length > 0) {
-      const updatedList = list.slice(1);
+      const updatedList = list.slice(1); // Remove the first element from the list
       if (updatedList.length > 0) {
-        updatedList[updatedList.length - 1].next = updatedList[0];
+        updatedList[updatedList.length - 1].next = updatedList[0]; // Update the next pointer of the last node
       }
-      setList(updatedList);
+      setList(updatedList); // Update the list
     } else {
-      alert("List is empty");
+      alert("List is empty"); // Show an alert if the list is empty
     }
   };
 
+  // Remove the last element from the list
   const removeLast = () => {
     if (list.length > 0) {
-      const updatedList = list.slice(0, -1);
+      const updatedList = list.slice(0, -1); // Remove the last element from the list
       if (updatedList.length > 0) {
-        updatedList[updatedList.length - 1].next = updatedList[0];
+        updatedList[updatedList.length - 1].next = updatedList[0]; // Update the next pointer of the last node
       }
-      setList(updatedList);
+      setList(updatedList); // Update the list
     } else {
-      alert("List is empty");
+      alert("List is empty"); // Show an alert if the list is empty
     }
   };
 
+  // Remove element at a specific index from the list
   const remove = (index) => {
     if (index >= 0 && index < list.length) {
       const updatedList = [...list];
       if (index === 0) {
-        updatedList.pop();
-        updatedList[updatedList.length - 1].next = updatedList[0];
-        updatedList.shift();
+        updatedList.pop(); // Remove the last element from the list
+        updatedList[updatedList.length - 1].next = updatedList[0]; // Update the next pointer of the last node
+        updatedList.shift(); // Remove the first element from the list
       } else {
-        updatedList[index - 1].next = updatedList[index + 1] || updatedList[0];
-        updatedList.splice(index, 1);
+        updatedList[index - 1].next = updatedList[index + 1] || updatedList[0]; // Update the next pointer of the previous node
+        updatedList.splice(index, 1); // Remove the element at the specified index
       }
-      setList(updatedList);
+      setList(updatedList); // Update the list
     } else {
-      alert("Invalid index");
+      alert("Invalid index"); // Show an alert for invalid index
     }
   };
 
+  // Get the first element from the list
   const getFirst = () => {
     if (list.length > 0) {
-      alert(`First element: ${list[0].value}`);
+      alert(`First element: ${list[0].value}`); // Show an alert with the first element value
     } else {
-      alert("List is empty");
+      alert("List is empty"); // Show an alert if the list is empty
     }
   };
 
+  // Get the last element from the list
   const getLast = () => {
     if (list.length > 0) {
-      alert(`Last element: ${list[list.length - 1].value}`);
+      alert(`Last element: ${list[list.length - 1].value}`); // Show an alert with the last element value
     } else {
-      alert("List is empty");
+      alert("List is empty"); // Show an alert if the list is empty
     }
   };
 
+  // Get element at a specific index from the list
   const get = (index) => {
     if (index >= 0 && index < list.length) {
-      alert(`Element at index ${index}: ${list[index].value}`);
+      alert(`Element at index ${index}: ${list[index].value}`); // Show an alert with the element value at the specified index
     } else {
-      alert("Invalid index");
+      alert("Invalid index"); // Show an alert for invalid index
     }
   };
 
+  // Get the size of the list
   const size = () => {
-    alert(`List size: ${list.length}`);
+    alert(`List size: ${list.length}`); // Show an alert with the size of the list
   };
 
+  // Check if the list is empty
   const isEmpty = () => {
     if (list.length === 0) {
-      alert("List is empty");
+      alert("List is empty"); // Show an alert if the list is empty
     } else {
-      alert("List is not empty");
+      alert("List is not empty"); // Show an alert if the list is not empty
     }
   };
 
+  // Clear the list
   const clear = () => {
-    setList([]);
+    setList([]); // Set the list to an empty array
   };
 
+  // Rotate the list by moving the last element to the beginning
   const rotate = () => {
     if (list.length > 0) {
-      const lastElement = list.pop();
-      list.unshift(lastElement);
-      setList([...list]);
+      const lastElement = list.pop(); // Remove the last element from the list
+      list.unshift(lastElement); // Add the last element at the beginning of the list
+      setList([...list]); // Update the list
     } else {
-      alert("List is empty");
+      alert("List is empty"); // Show an alert if the list is empty
     }
   };
 
   return (
     <Box p={3} flexGrow={1}>
+      {/* Input field for entering the value */}
       <TextField
         label="Value"
         value={value}
@@ -158,6 +173,7 @@ function CircularLinkedList() {
         variant="outlined"
         style={{ marginTop: -10 }}
       />
+      {/* Buttons for performing list operations */}
       <Box
         sx={{
           display: "flex",
@@ -294,6 +310,7 @@ function CircularLinkedList() {
           Rotate
         </Button>
       </Box>
+      {/* Display the circular linked list */}
       <Box mt={3}>
         <Typography variant="h6">Circular Linked List</Typography>
         <Box display="flex" alignItems="center">

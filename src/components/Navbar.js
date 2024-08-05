@@ -19,26 +19,31 @@ import MenuIcon from "@mui/icons-material/Menu";
 function Navbar({ toggleTheme, toggleSidebar }) {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
+  // Function to handle theme toggle
   const handleThemeToggle = () => {
     setIsDarkTheme(!isDarkTheme);
     toggleTheme();
   };
 
   return (
-    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+    <AppBar
+      position="fixed"
+      sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+    >
       <Toolbar sx={{ justifyContent: "space-between" }}>
+        {/* Sidebar toggle button */}
         <IconButton color="inherit" onClick={toggleSidebar}>
           <MenuIcon />
         </IconButton>
-        <Typography
-          variant="h6"
-          sx={{ flexGrow: 1, textAlign: "center" }}
-        >
+        {/* Title */}
+        <Typography variant="h6" sx={{ flexGrow: 1, textAlign: "center" }}>
           Data Structure Visualizer
         </Typography>
+        {/* Theme toggle button */}
         <IconButton color="inherit" onClick={handleThemeToggle}>
           {isDarkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
         </IconButton>
+        {/* GitHub link */}
         <IconButton
           color="inherit"
           href="https://github.com/VineethChivukula/dsvisualizer"

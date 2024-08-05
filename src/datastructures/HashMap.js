@@ -11,10 +11,12 @@ import TextField from "@mui/material/TextField";
  * @returns {HashMap} The HashMap instance.
  */
 function HashMap() {
+  // State variables
   const [hashMap, setHashMap] = useState(new Map());
   const [key, setKey] = useState("");
   const [value, setValue] = useState("");
 
+  // Add key-value pair to the HashMap
   const handleAdd = () => {
     const newMap = new Map(hashMap);
     newMap.set(key, value);
@@ -23,6 +25,7 @@ function HashMap() {
     setValue("");
   };
 
+  // Remove key-value pair from the HashMap
   const handleRemove = () => {
     const newMap = new Map(hashMap);
     newMap.delete(key);
@@ -30,6 +33,7 @@ function HashMap() {
     setKey("");
   };
 
+  // Check if the HashMap contains a specific key
   const handleContainsKey = () => {
     if (hashMap.has(key)) {
       alert("Key exists in the HashMap");
@@ -39,6 +43,7 @@ function HashMap() {
     setKey("");
   };
 
+  // Get the value associated with a specific key in the HashMap
   const handleGetValue = () => {
     if (hashMap.has(key)) {
       alert(`Value for key "${key}": ${hashMap.get(key)}`);
@@ -48,10 +53,12 @@ function HashMap() {
     setKey("");
   };
 
+  // Get the size of the HashMap
   const handleSize = () => {
     alert(`HashMap size: ${hashMap.size}`);
   };
 
+  // Check if the HashMap is empty
   const handleIsEmpty = () => {
     if (hashMap.size === 0) {
       alert("HashMap is empty");
@@ -60,12 +67,14 @@ function HashMap() {
     }
   };
 
+  // Clear the HashMap
   const handleClear = () => {
     setHashMap(new Map());
   };
 
   return (
     <Box p={3} flexGrow={1}>
+      {/* Input fields for key and value */}
       <TextField
         label="Key"
         value={key}
@@ -80,6 +89,8 @@ function HashMap() {
         variant="outlined"
         style={{ marginTop: -10, marginLeft: 10 }}
       />
+
+      {/* Buttons for HashMap operations */}
       <Box
         sx={{
           display: "flex",
@@ -147,6 +158,8 @@ function HashMap() {
           Clear
         </Button>
       </Box>
+
+      {/* Display the HashMap */}
       <Box mt={3}>
         <Typography variant="h6">Hash Map</Typography>
         <Box display="flex" flexWrap="wrap">

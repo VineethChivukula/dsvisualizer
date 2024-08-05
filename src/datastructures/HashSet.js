@@ -11,9 +11,11 @@ import TextField from "@mui/material/TextField";
  * @returns {HashSet} The HashSet object.
  */
 function HashSet() {
-  const [hashSet, setHashSet] = useState(new Set());
-  const [value, setValue] = useState("");
+  // State variables
+  const [hashSet, setHashSet] = useState(new Set()); // Stores the HashSet
+  const [value, setValue] = useState(""); // Stores the input value
 
+  // Add a value to the HashSet
   const handleAdd = () => {
     const newSet = new Set(hashSet);
     newSet.add(value);
@@ -21,6 +23,7 @@ function HashSet() {
     setValue("");
   };
 
+  // Remove a value from the HashSet
   const handleRemove = () => {
     const newSet = new Set(hashSet);
     newSet.delete(value);
@@ -28,6 +31,7 @@ function HashSet() {
     setValue("");
   };
 
+  // Check if a value exists in the HashSet
   const handleContains = () => {
     if (hashSet.has(value)) {
       alert("Value exists in the HashSet");
@@ -37,10 +41,12 @@ function HashSet() {
     setValue("");
   };
 
+  // Get the size of the HashSet
   const handleSize = () => {
     alert(`HashSet size: ${hashSet.size}`);
   };
 
+  // Check if the HashSet is empty
   const handleIsEmpty = () => {
     if (hashSet.size === 0) {
       alert("HashSet is empty");
@@ -49,12 +55,14 @@ function HashSet() {
     }
   };
 
+  // Clear the HashSet
   const handleClear = () => {
     setHashSet(new Set());
   };
 
   return (
     <Box p={3} flexGrow={1}>
+      {/* Input field for adding values */}
       <TextField
         label="Value"
         value={value}
@@ -72,6 +80,7 @@ function HashSet() {
           gap: 1,
         }}
       >
+        {/* Buttons for performing HashSet operations */}
         <Button
           variant="contained"
           color="success"
@@ -123,6 +132,7 @@ function HashSet() {
       </Box>
       <Box mt={3}>
         <Typography variant="h6">Hash Set</Typography>
+        {/* Display the HashSet values */}
         <Box display="flex" flexWrap="wrap">
           {[...hashSet].map((item, index) => (
             <Box
