@@ -24,33 +24,34 @@
  * - The border radius of the thumb is set to 10px.
  * - On hover, the background color of the thumb changes to #6b6b6b.
  */
-.dark-theme-scrollbar::-webkit-scrollbar {
-  width: 8px;
+.light-theme-scrollbar {
+  scrollbar-color: #1976d2 #f3f4f6;
 }
 
-.dark-theme-scrollbar::-webkit-scrollbar-thumb {
-  background: #9f9f9f;
-  border-radius: 18px;
+.dark-theme-scrollbar {
+  scrollbar-color: #61dafb #23272f;
 }
 
-.dark-theme-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #636363;
-}
-
-/* Dark theme scrollbar */
 .light-theme-scrollbar::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 
-.light-theme-scrollbar::-webkit-scrollbar-track {
-  background: #fbfbfc;
+.dark-theme-scrollbar::-webkit-scrollbar {
+  width: 12px;
 }
 
 .light-theme-scrollbar::-webkit-scrollbar-thumb {
-  background: #8b8b8b;
-  border-radius: 10px;
+  background-color: #1976d2;
 }
 
-.light-theme-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #6b6b6b;
+.dark-theme-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #61dafb;
+}
+
+.light-theme-scrollbar::-webkit-scrollbar-track {
+  background-color: #f3f4f6;
+}
+
+.dark-theme-scrollbar::-webkit-scrollbar-track {
+  background-color: #23272f;
 }

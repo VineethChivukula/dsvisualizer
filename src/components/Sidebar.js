@@ -5,8 +5,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 
 const items = [
-  " ",
-  " ",
   "Array",
   "ArrayList",
   "SingleLinkedList",
@@ -31,16 +29,24 @@ const items = [
  * @param {Object} props - The component props.
  * @param {Function} props.onSelect - The function to be called when an item is selected.
  * @param {string} props.theme - The theme of the sidebar.
+ * @param {boolean} props.open - Indicates if the sidebar is open.
+ * @param {Function} props.onClose - The function to close the sidebar.
  * @returns {JSX.Element} The rendered sidebar component.
  */
-function Sidebar({ onSelect, theme }) {
+function Sidebar({ onSelect, theme, open, onClose }) {
   return (
     <Drawer
-      variant="permanent"
+      variant="temporary"
+      open={open}
+      onClose={onClose}
+      ModalProps={{
+        keepMounted: true,
+      }}
       sx={{
-        width: 200,
+        zIndex: (theme) => theme.zIndex.drawer + 2,
+        width: 240,
         flexShrink: 0,
-        [`& .MuiDrawer-paper`]: { width: 200, boxSizing: "border-box" },
+        [`& .MuiDrawer-paper`]: { width: 240, boxSizing: "border-box" },
       }}
     >
       <List
@@ -53,7 +59,13 @@ function Sidebar({ onSelect, theme }) {
         }}
       >
         {items.map((text) => (
-          <ListItemButton key={text} onClick={() => onSelect(text)}>
+          <ListItemButton
+            key={text}
+            onClick={() => {
+              onSelect(text);
+              onClose();
+            }}
+          >
             <ListItemText primary={text} />
           </ListItemButton>
         ))}

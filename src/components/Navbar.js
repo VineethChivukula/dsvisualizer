@@ -6,15 +6,17 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import IconButton from "@mui/material/IconButton";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
+import MenuIcon from "@mui/icons-material/Menu";
 
 /**
  * Renders a navigation bar component.
  *
  * @param {Object} props - The component props.
  * @param {Function} props.toggleTheme - The function to toggle the theme.
+ * @param {Function} props.toggleSidebar - The function to toggle the sidebar.
  * @returns {JSX.Element} The rendered Navbar component.
  */
-function Navbar({ toggleTheme }) {
+function Navbar({ toggleTheme, toggleSidebar }) {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const handleThemeToggle = () => {
@@ -23,12 +25,15 @@ function Navbar({ toggleTheme }) {
   };
 
   return (
-    <AppBar
-      position="fixed"
-      sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-    >
-      <Toolbar>
-        <Typography variant="h6" style={{ flexGrow: 1 }}>
+    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+      <Toolbar sx={{ justifyContent: "space-between" }}>
+        <IconButton color="inherit" onClick={toggleSidebar}>
+          <MenuIcon />
+        </IconButton>
+        <Typography
+          variant="h6"
+          sx={{ flexGrow: 1, textAlign: "center" }}
+        >
           Data Structure Visualizer
         </Typography>
         <IconButton color="inherit" onClick={handleThemeToggle}>
