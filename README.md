@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+# Data Structure Visualizer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a web application for visualizing various data structures. It allows users to switch between light and dark themes and provides a user-friendly interface for interacting with different data structures.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Installation](#installation)
+- [Usage](#usage)
+- [Components](#components)
+- [Themes](#themes)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To get started with the project, follow these steps:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Clone the repository**:
 
-### `npm test`
+   ```bash
+   git clone https://github.com/vineethchivukula/dsvisualizer.git
+   cd dsvisualizer
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Install dependencies**:
 
-### `npm run build`
+   ```bash
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Start the development server**:
+   ```bash
+   npm start
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The application should now be running on `http://localhost:3000`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
 
-### `npm run eject`
+Once the application is running, you can use the following features:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Toggle Theme**: Use the button in the `Navbar` to switch between light and dark themes.
+- **Select Data Structure**: Use the `Sidebar` to select different data structures to visualize.
+- **Interact with Data Structures**: Use the `DataStructureVisualizer` component to interact with the selected data structure.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Components
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### App
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The main component of the application. It manages the theme and the selected data structure.
 
-## Learn More
+### Navbar
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+A navigation bar that includes a button to toggle between light and dark themes.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Sidebar
 
-### Code Splitting
+A sidebar that allows users to select different data structures to visualize.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### DataStructureVisualizer
 
-### Analyzing the Bundle Size
+A component that renders the visualization of the selected data structure.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Themes
 
-### Making a Progressive Web App
+The application supports both light and dark themes. The themes are defined using Material-UI's `createTheme` function.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Light Theme
 
-### Advanced Configuration
+```javascript
+const lightTheme = createTheme({
+  palette: {
+    mode: "light",
+    background: {
+      default: "#f3f4f6",
+      paper: "#ffffff",
+    },
+    text: {
+      primary: "#1976d2",
+      secondary: "#4d4d4d",
+    },
+  },
+});
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Dark Theme
 
-### Deployment
+```javascript
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+    background: {
+      default: "#23272f",
+      paper: "#333840",
+    },
+    text: {
+      primary: "#61dafb",
+      secondary: "#ffffff",
+    },
+    primary: {
+      main: "#61dafb",
+    },
+  },
+});
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contributing
 
-### `npm run build` fails to minify
+Contributions are welcome! Please follow these steps to contribute:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
